@@ -264,8 +264,7 @@ class Conf {
 			data = Buffer.concat([cipher.update(Buffer.from(data)), cipher.final()]);
 		}
 
-		// TEMP: writeFileAtomic.sync(this.path, data, { chown: false });
-		throw new Error('It is imported!');
+		writeFileAtomic.sync(this.path, data);
 		this.events.emit('change');
 	}
 
